@@ -8,7 +8,7 @@ import loader from "../svgs/i24-loader.svg";
 import cross from "../svgs/i24-cross.svg";
 import { LoginProps, LoginArgument } from "../interfaces/interfaces";
 
-const er = /.@./; // /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const regularExpression = /.@./; // /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 export default function Form({ user, setUser }: LoginProps) {
   const [loading, setLoading] = useState(false);
@@ -19,10 +19,9 @@ export default function Form({ user, setUser }: LoginProps) {
     formState: { errors },
   } = useForm<LoginArgument>();
 
-  const onSubmitHandler = handleSubmit(async (e) => {
+  const onSubmitHandler = handleSubmit(async (event) => {
     setLoading(true);
-    const res = await login({ email: e.email, password: e.password });
-    console.log(res);
+    const res = await login({ email: event.email, password: event.password });
     setUser(res);
     setLoading(false);
   });
@@ -38,7 +37,7 @@ export default function Form({ user, setUser }: LoginProps) {
       >
         <input
           type="text"
-          {...register("email", { required: true, pattern: er })}
+          {...register("email", { required: true, pattern: regularExpression })}
           placeholder="Email"
           className={user?.error || errors.email ? "BorderError" : ""}
         ></input>
