@@ -13,11 +13,14 @@
   min-height: 100vh;
   display: grid;
   place-content: center;
-  grid-template-rows: 100px auto;
 }
 
-.LoginScreen img,
-.ProfileScreen img {
+.LoginScreen .logo, .ProfileScreen .logo {
+  justify-self: center;
+  position: absolute;
+  top:10%;
+}
+.ProfileScreen img{
   justify-self: center;
 }
 

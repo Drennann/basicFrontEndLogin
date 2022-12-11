@@ -5,7 +5,7 @@ import ProfileCard from "../components/ProfileCard";
 export default function Profile({ user, setUser }: LoginProps) {
   return (
     <div className="ProfileScreen">
-      <img src={Logo} alt="Logo"></img>
+      <img src={Logo} alt="Logo" className="logo"></img>
       <ProfileCard user={user} setUser={setUser}/>
     </div>
   );
