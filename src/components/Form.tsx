@@ -34,9 +34,7 @@ export default function Form({ user, setUser }: LoginProps) {
         Please log in to this form if you wish <br></br> to pass the exam.
       </p>
       <div
-        className={`inputContainer ${
-          user?.error || errors.email ? "" : ""
-        }`}
+        className={`inputContainer`}
       >
         <input
           type="text"
@@ -56,7 +54,7 @@ export default function Form({ user, setUser }: LoginProps) {
             (errors.email && "Incorrect email")}
         </p>
       }
-      <div className={`inputContainer ${user?.error ? "" : ""}`}>
+      <div className={`inputContainer`}>
         <input
           className={`${user?.error ? "BorderError" : ""}`}
           type="password"
