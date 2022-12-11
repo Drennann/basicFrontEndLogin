@@ -1,5 +1,4 @@
 import Logo from "../svgs/Mercury-logotype.svg";
-import logout from "../svgs/i24-logout.svg";
 import { LoginProps } from "../interfaces/interfaces";
 import ProfileCard from "../components/ProfileCard";
 
