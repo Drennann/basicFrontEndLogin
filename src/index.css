@@ -32,7 +32,7 @@
 }
 
 .formContainer {
-  gap: 25px;
+  gap: 22px;
 }
 
 .formContainer button,
@@ -50,6 +50,11 @@
   display: flex;
   justify-content: center;
   align-content: center;
+}
+
+.formContainer button:focus-visible,
+.profileContainer .LoginButton:focus-visible {
+  outline: none;
 }
 
 .formContainer button img,
@@ -90,7 +95,6 @@
 }
 
 .formContainer h2 {
-  margin-top: 20px;
   font-size: 18px;
   font-weight: 600;
 }
@@ -100,7 +104,6 @@
 
 .formContainer input {
   text-align: left;
-  border: 2px solid transparent;
 }
 
 .formContainer input:focus-visible {
@@ -145,8 +148,18 @@
 .profileContainer .LoginButton {
   margin: 0 auto;
 }
+.inputContainer{
+  display: flex;
+}
 
-.inputContainer {
+.inputContainer img {
+  color: transparent;
+  position: absolute;
+  padding: 13px 13px 13px 220px;
+  pointer-events: none;
+}
+
+.inputContainer input{
   display: flex;
   box-sizing: border-box;
   justify-content: space-between;
@@ -161,16 +174,27 @@
   border: 2px solid transparent;
   border-radius: 12px;
   padding: 12px 12px 12px 12px;
+  border: 2px solid rgba(165, 174, 189, 0.2);
+  background: rgba(165, 174, 189, 0.1);
 }
 
-.inputContainer:hover {
+.inputContainer input::placeholder{
+  color: #a5aec2;
+}
+
+.inputContainer input:hover{
   border: 2px solid #2f7bff;
 }
 
-.inputContainer img {
-  display: none;
+.inputContainer input:focus{
+  border: 2px solid #2f7bff;
 }
 
 .show {
-  display: block !important;
+  display: inline !important;
+  color: red !important;
+}
+
+.hidden{
+  display: none;
 }

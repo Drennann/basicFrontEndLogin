@@ -35,19 +35,19 @@ export default function Form({ user, setUser }: LoginProps) {
       </p>
       <div
         className={`inputContainer ${
-          user?.error || errors.email ? "BorderError" : ""
+          user?.error || errors.email ? "" : ""
         }`}
       >
         <input
           type="text"
           {...register("email", { required: true, pattern: er })}
           placeholder="Email"
-          className={user?.error || errors.email ? "" : ""}
+          className={user?.error || errors.email ? "BorderError" : ""}
         ></input>
         <img
           src={cross}
           alt="cross"
-          className={user?.error || errors.email ? "show" : ""}
+          className={user?.error || errors.email ? "show" : "hidden"}
         ></img>
       </div>
       {
@@ -56,8 +56,9 @@ export default function Form({ user, setUser }: LoginProps) {
             (errors.email && "Incorrect email")}
         </p>
       }
-      <div className={`inputContainer ${user?.error ? "BorderError" : ""}`}>
+      <div className={`inputContainer ${user?.error ? "" : ""}`}>
         <input
+          className={`${user?.error ? "BorderError" : ""}`}
           type="password"
           {...register("password", { required: true })}
           placeholder="Password"
@@ -65,7 +66,7 @@ export default function Form({ user, setUser }: LoginProps) {
         <img
           src={cross}
           alt="cross"
-          className={user?.error ? "show" : ""}
+          className={user?.error ? "show" : "hidden"}
         ></img>
       </div>
       {
