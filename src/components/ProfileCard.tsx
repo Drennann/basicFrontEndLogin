@@ -3,7 +3,7 @@ import logout from "../svgs/i24-logout.svg";
 
 export default function ProfileCard({setUser, user}: LoginProps){
     return(
-        <>
+        <div className="profileContainer">
         {user?.data && (
           <>
             <img src={"./"+user.data.avatar} width={80} height={80} alt="avatar"></img>
@@ -14,6 +14,6 @@ export default function ProfileCard({setUser, user}: LoginProps){
             </button>
           </>
         )}
-      </>
+      </div>
     )
 }

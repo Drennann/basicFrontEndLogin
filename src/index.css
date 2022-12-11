@@ -80,11 +80,11 @@
   }
 }
 
-.formContainer button:hover {
+.formContainer button:hover, .profileContainer button:hover {
   box-shadow: 0px 8px 24px -4px #2f7bff;
 }
 
-.formContainer button:active {
+.formContainer button:active, .profileContainer button:active{
   background: #0057ff;
   box-shadow: none;
 }

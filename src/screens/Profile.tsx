@@ -7,9 +7,7 @@ export default function Profile({ user, setUser }: LoginProps) {
   return (
     <div className="ProfileScreen">
       <img src={Logo} alt="Logo"></img>
-      <div className="profileContainer">
-        <ProfileCard user={user} setUser={setUser}/>
-      </div>
+      <ProfileCard user={user} setUser={setUser}/>
     </div>
   );
 }
