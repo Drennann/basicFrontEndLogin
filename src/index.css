@@ -7,6 +7,10 @@
   font-family: "Inter";
 }
 
+.subtitleMessage{
+  line-height: 22px;
+}
+
 .LoginScreen,
 .ProfileScreen {
   background: linear-gradient(135deg, #ac53ff 0%, #4439ff 100%);
@@ -30,7 +34,8 @@
   display: grid;
   place-content: center;
   padding: 28px 32px 40px;
-  height: 336px;
+  min-height: 336px;
+  min-width: 250px;
   border-radius: 20px;
 }
 
@@ -123,8 +128,8 @@
 }
 
 .profileContainer {
-  width: 320px;
-  height: 320px;
+  min-width: 320px;
+  min-height: 320px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -183,6 +188,7 @@
 
 .inputContainer input::placeholder{
   color: #a5aec2;
+  font-size: 16px;
 }
 
 .inputContainer input:hover{

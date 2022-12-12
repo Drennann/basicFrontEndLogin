@@ -6,12 +6,13 @@ import { joinClassNames } from "../utils/joinClassNames";
 import next from "../svgs/i24-next.svg";
 import loader from "../svgs/i24-loader.svg";
 import cross from "../svgs/i24-cross.svg";
-import { LoginProps, LoginArgument } from "../interfaces/interfaces";
+import { LoginProps, LoginArgument, userData } from "../interfaces/interfaces";
+import Button from "./Button";
 
 const regularExpression = /.@./; // /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 export default function Form({ user, setUser }: LoginProps) {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setisLoading] = useState(false);
 
   const {
     register,
@@ -20,21 +21,19 @@ export default function Form({ user, setUser }: LoginProps) {
   } = useForm<LoginArgument>();
 
   const onSubmitHandler = handleSubmit(async (event) => {
-    setLoading(true);
+    setisLoading(true);
     const res = await login({ email: event.email, password: event.password });
     setUser(res);
-    setLoading(false);
+    setisLoading(false);
   });
 
   return (
     <form className="formContainer" onSubmit={onSubmitHandler}>
       <h2>Welcome, stranger!</h2>
-      <p>
+      <p className="subtitleMessage">
         Please log in to this form if you wish <br></br> to pass the exam.
       </p>
-      <div
-        className={`inputContainer`}
-      >
+      <div className={`inputContainer`}>
         <input
           type="text"
           {...register("email", { required: true, pattern: regularExpression })}
@@ -71,8 +70,28 @@ export default function Form({ user, setUser }: LoginProps) {
           {user?.error && "Incorrect credentials"}
         </p>
       }
+      {isLoading ? (
+        <Button>
+          <>
+            <img src={loader} alt="loader" id="loader"></img>
+          </>
+        </Button>
+      ) : (
+        <Button>
+          <>
+            <p>Login</p>
+            <img src={next} alt="next"></img>
+          </>
+        </Button>
+      )}
+    </form>
+  );
+}
+
+/* 
+
       <button>
-        {loading ? (
+        {isLoading ? (
           <img src={loader} alt="loader" id="loader"></img>
         ) : (
           <>
@@ -81,6 +100,5 @@ export default function Form({ user, setUser }: LoginProps) {
           </>
         )}
       </button>
-    </form>
-  );
-}
+
+*/
