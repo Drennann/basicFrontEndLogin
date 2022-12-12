@@ -18,7 +18,12 @@ export interface LoginProps {
   user: userData;
 }
 
-export interface ButtonProps{
+/*export interface ButtonProps{
+  children: JSX.Element,
+  setUser?: Dispatch<SetStateAction<Object>>;
+}*/
+
+export type ButtonProps = React.ComponentProps<'button'> & {
   children: JSX.Element,
   setUser?: Dispatch<SetStateAction<Object>>;
 }
